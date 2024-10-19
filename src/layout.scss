@@ -1,26 +1,44 @@
+// layout.scss
 @import "./responsive.scss";
 
 .layout {
-  background-color: purple;
-  height: 100vh;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  
+  // Default styles (desktop first)
   max-width: 1366px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  background-color: purple;
 
-  @include sm {
-    background-color: rgb(228, 165, 165);
-    max-width: 640px;
+  @include lg {
+    max-width: 1280px;
+    background-color: rgb(30, 240, 142);
   }
 
   @include md {
-    background-color: rgb(123, 117, 214);
     max-width: 768px;
+    background-color: rgb(123, 117, 214);
+    padding: 0 15px;
   }
 
-  @include lg {
-    background-color: rgb(30, 240, 142);
-    max-width: 1280px;
+  @include sm {
+    max-width: 640px;
+    background-color: rgb(228, 165, 165);
+    padding: 0 10px;
+  }
+
+  .content {
+    flex: 1;
+    background-color: rebeccapurple;
+    min-height: calc(100vh - 100px);
+    margin-top: 20px;
+    border-radius: 15px;
+
+    @include sm {
+      margin-top: 15px;
+      border-radius: 10px;
+    }
   }
 }

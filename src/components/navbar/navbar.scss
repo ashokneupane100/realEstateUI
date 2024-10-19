@@ -1,21 +1,25 @@
+// navbar.scss
 @import "../../responsive.scss";
 
 nav.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  position: relative;
+  
+  // Default styles (desktop first)
   padding: 20px;
   background-color: #210366;
   border-radius: 15px;
-  width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  position: relative;
 
   @include sm {
     padding: 15px;
     border-radius: 10px;
   }
-  
+
+  // Left section
   .navbar-left {
     display: flex;
     align-items: center;
@@ -24,7 +28,7 @@ nav.navbar {
     @include sm {
       gap: 10px;
     }
-    
+
     .logo {
       display: flex;
       align-items: center;
@@ -33,6 +37,7 @@ nav.navbar {
       img {
         width: 30px;
         filter: brightness(0) invert(1);
+        transition: all 0.3s ease;
 
         @include sm {
           width: 25px;
@@ -43,11 +48,11 @@ nav.navbar {
         font-size: 24px;
         font-weight: 700;
         color: #f6f3f2;
-        
+        transition: all 0.3s ease;
+
         @include sm {
           font-size: 20px;
         }
-
         @include md {
           font-size: 22px;
         }
@@ -57,7 +62,8 @@ nav.navbar {
         }
       }
     }
-    
+
+    // Desktop Navigation Links
     .navbar-links {
       display: flex;
       gap: 20px;
@@ -65,30 +71,31 @@ nav.navbar {
       @include md {
         gap: 15px;
       }
-      
+
+      @include sm {
+        display: none; // Hide on mobile
+      }
+
       a {
         color: white;
         text-decoration: none;
         font-weight: 600;
         font-size: 16px;
         transition: all 0.3s ease;
-        
+
         @include md {
           font-size: 15px;
         }
-        
+
         &:hover {
           color: #ff6347;
           transform: scale(1.1);
         }
       }
-      
-      @include sm {
-        display: none;
-      }
     }
   }
-  
+
+  // Right section
   .navbar-right {
     display: flex;
     align-items: center;
@@ -97,13 +104,15 @@ nav.navbar {
     @include sm {
       gap: 10px;
     }
-    
+
+    // Button styles
     .sign-in, .register-btn {
       padding: 8px 16px;
       border-radius: 20px;
       color: white;
-      text-align: center;
+      text-decoration: none;
       font-size: 16px;
+      transition: all 0.3s ease;
 
       @include sm {
         padding: 6px 12px;
@@ -115,7 +124,7 @@ nav.navbar {
         font-size: 15px;
       }
     }
-    
+
     .sign-in {
       background-color: rgb(3, 103, 3);
       border: 2px solid tomato;
@@ -123,7 +132,7 @@ nav.navbar {
         background-color: #ff6347;
       }
     }
-    
+
     .register-btn {
       background-color: #91068a;
       border: 2px solid tomato;
@@ -131,18 +140,20 @@ nav.navbar {
         background-color: #ff4500;
       }
     }
-    
+
+    // Mobile menu button
     .hamburger-menu {
       display: none;
       width: 30px;
       cursor: pointer;
-      
+
       @include sm {
         display: block;
       }
     }
   }
-  
+
+  // Mobile Navigation Menu
   .navbar-links.active {
     display: flex;
     flex-direction: column;
@@ -163,7 +174,7 @@ nav.navbar {
       width: 180px;
       padding: 20px;
     }
-    
+
     a {
       display: block;
       padding: 10px 0;
@@ -178,12 +189,10 @@ nav.navbar {
         font-size: 15px;
         padding: 12px 0;
       }
-      
+
       &:hover {
         color: #ff6347;
       }
     }
   }
 }
-
-//responsive menu done
