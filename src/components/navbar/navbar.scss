@@ -4,100 +4,186 @@ nav.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px;
-  height: 80px;
+  padding: 20px;
   background-color: #210366;
   border-radius: 15px;
-  width: 102%;
+  width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
 
-  a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 2px;
-    transition: all 0.3s ease;
-
-    &:hover {
-      color: #ff6347;
-      transform: scale(1.1);
-    }
-
-    @include sm {
-      display: none;
-    }
+  @include sm {
+    padding: 15px;
+    border-radius: 10px;
   }
-
+  
   .navbar-left {
-    flex: 3;
     display: flex;
     align-items: center;
-    gap: 40px;
-    padding: 2px;
+    gap: 20px;
 
+    @include sm {
+      gap: 10px;
+    }
+    
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
-
+      
       img {
         width: 30px;
-        height: auto;
-        /* CSS filter to make logo white */
         filter: brightness(0) invert(1);
-      }
 
+        @include sm {
+          width: 25px;
+        }
+      }
+      
       span {
         font-size: 24px;
         font-weight: 700;
         color: #f6f3f2;
-      }
+        
+        @include sm {
+          font-size: 20px;
+        }
 
-      span:hover {
-        color: #ff6347;
+        @include md {
+          font-size: 22px;
+        }
+        
+        &:hover {
+          color: #ff6347;
+        }
       }
     }
-
+    
     .navbar-links {
       display: flex;
-      gap: 30px;
-    }
-  }
+      gap: 20px;
 
-  .navbar-right {
-    flex: 2;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 20px;
-
-    .sign-in {
-      padding: 8px 16px;
-      background-color: rgb(3, 103, 3);
-      border: 2px solid tomato;
-      border-radius: 20px;
-      color: white;
-      margin-left: 5px;
-      text-align: center;
-
-      &:hover {
-        background-color: #ff6347;
-        color: #fff;
+      @include md {
+        gap: 15px;
+      }
+      
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        
+        @include md {
+          font-size: 15px;
+        }
+        
+        &:hover {
+          color: #ff6347;
+          transform: scale(1.1);
+        }
+      }
+      
+      @include sm {
+        display: none;
       }
     }
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 
-    .register-btn {
-      padding: 10px 20px;
-      background-color: #91068a;
+    @include sm {
+      gap: 10px;
+    }
+    
+    .sign-in, .register-btn {
+      padding: 8px 16px;
       border-radius: 20px;
       color: white;
-      font-weight: 600;
-      border: 2px solid tomato;
+      text-align: center;
+      font-size: 16px;
 
+      @include sm {
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+
+      @include md {
+        padding: 7px 14px;
+        font-size: 15px;
+      }
+    }
+    
+    .sign-in {
+      background-color: rgb(3, 103, 3);
+      border: 2px solid tomato;
+      &:hover {
+        background-color: #ff6347;
+      }
+    }
+    
+    .register-btn {
+      background-color: #91068a;
+      border: 2px solid tomato;
       &:hover {
         background-color: #ff4500;
       }
     }
+    
+    .hamburger-menu {
+      display: none;
+      width: 30px;
+      cursor: pointer;
+      
+      @include sm {
+        display: block;
+      }
+    }
+  }
+  
+  .navbar-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #210366;
+    padding: 30px;
+    border-radius: 10px;
+    gap: 45px;
+    margin-top: 10px;
+    width: 200px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    @include sm {
+      display: block;
+      width: 180px;
+      padding: 20px;
+    }
+    
+    a {
+      display: block;
+      padding: 10px 0;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-align: center;
+
+      @include sm {
+        font-size: 15px;
+        padding: 12px 0;
+      }
+      
+      &:hover {
+        color: #ff6347;
+      }
+    }
   }
 }
+
+//responsive menu done
